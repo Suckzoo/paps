@@ -522,12 +522,13 @@ _paps_arg_cpi_cb(const gchar *option_name,
 static char*
 get_encoding(void)
 {
-  static char *encoding = NULL;
+  return "UTF-8";
+  // static char *encoding = NULL;
 
-  if (encoding == NULL)
-    encoding = nl_langinfo(CODESET);
+  // if (encoding == NULL)
+  //   encoding = nl_langinfo(CODESET);
 
-  return encoding;
+  // return encoding;
 }
 
 static cairo_status_t paps_cairo_write_func(void *closure G_GNUC_UNUSED,
@@ -1568,11 +1569,11 @@ draw_page_header_line_to_page(cairo_t         *cr,
   //    1. Date
   //    2. Filename (title)
   //    3. Page
-  header = g_strdup_printf("<span font_desc=\"%s\">%s</span>\n"
+  header = g_strdup_printf(/* "<span font_desc=\"%s\">%s</span>\n" */
                            "<span font_desc=\"%s\">%s</span>\n"
                            "<span font_desc=\"%s\">%d</span>",
-                           page_layout->header_font_desc,
-                           get_date(date, 255),
+                           // page_layout->header_font_desc,
+                           // get_date(date, 255),
                            page_layout->header_font_desc,
                            page_layout->title,
                            page_layout->header_font_desc,
